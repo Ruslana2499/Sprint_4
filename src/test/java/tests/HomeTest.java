@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class HomeTest extends BaseTest {
     @Test
-    public void testDropDownList(){
+    public void testDropDownList() {
         HomePageObject pageObject = new HomePageObject(driver);
         pageObject.clickAcceptCookiesButton();
         List<String> dropDownListIds = pageObject.getDropDownListIds();

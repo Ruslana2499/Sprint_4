@@ -18,15 +18,15 @@ public class HomePageObject {
         this.driver = driver;
     }
 
-    private String getDropDownListItemId(WebElement item){
+    private String getDropDownListItemId(WebElement item) {
         String buttonId = item.getAttribute("id");
-        return buttonId.substring(buttonId.indexOf('-')+1);
+        return buttonId.substring(buttonId.indexOf('-') + 1);
     }
 
     public List<String> getDropDownListIds() {
         List<String> result = new ArrayList<String>();
         List<WebElement> buttons = driver.findElements(dropDownListItem);
-        for (WebElement button : buttons){
+        for (WebElement button : buttons) {
             String buttonId = getDropDownListItemId(button);
             result.add(buttonId);
         }
@@ -35,9 +35,9 @@ public class HomePageObject {
 
     public void clickDropDownListItem(String id) {
         List<WebElement> buttons = driver.findElements(dropDownListItem);
-        for (WebElement button : buttons){
+        for (WebElement button : buttons) {
             String buttonId = getDropDownListItemId(button);
-            if (buttonId .equals(id)){
+            if (buttonId.equals(id)) {
                 button.click();
                 return;
             }
@@ -46,22 +46,23 @@ public class HomePageObject {
 
     public String getVisibleDropDownListTextBlockId() {
         List<WebElement> panels = driver.findElements(dropDownListText);
-        for (WebElement panel : panels){
-            if (panel.isDisplayed()){
+        for (WebElement panel : panels) {
+            if (panel.isDisplayed()) {
                 return getDropDownListItemId(panel);
             }
         }
         return null;
     }
 
-    public void clickOrderButtonInHeader(){
+    public void clickOrderButtonInHeader() {
         driver.findElement(orderButtonInHeader).click();
     }
 
-    public void clickOrderButtonInBody(){
+    public void clickOrderButtonInBody() {
         driver.findElement(orderButtonInBody).click();
     }
-    public void clickAcceptCookiesButton(){
+
+    public void clickAcceptCookiesButton() {
         driver.findElement(acceptCookiesButton).click();
     }
 }
